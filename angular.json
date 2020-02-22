@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
-  "newProjectRoot": "projects",
+  "version": 1,
+  "newProjectRoot": "",
   "projects": {
     "merchstore": {
       "projectType": "application",
@@ -10,25 +10,25 @@
           "style": "scss"
         }
       },
-      "root": "",
-      "sourceRoot": "src",
+      "root": "apps/merchstore",
+      "sourceRoot": "apps/merchstore/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/merchstore",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
+            "outputPath": "dist/apps/merchstore",
+            "index": "apps/merchstore/src/index.html",
+            "main": "apps/merchstore/src/main.ts",
+            "polyfills": "apps/merchstore/src/polyfills.ts",
+            "tsConfig": "apps/merchstore/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "apps/merchstore/src/favicon.ico",
+              "apps/merchstore/src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "apps/merchstore/src/styles.scss"
             ],
             "scripts": []
           },
@@ -36,8 +36,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "apps/merchstore/src/environments/environment.ts",
+                  "with": "apps/merchstore/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -83,16 +83,16 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
+            "main": "apps/merchstore/src/test.ts",
+            "polyfills": "apps/merchstore/src/polyfills.ts",
+            "tsConfig": "apps/merchstore/tsconfig.spec.json",
+            "karmaConfig": "apps/merchstore/karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "apps/merchstore/src/favicon.ico",
+              "apps/merchstore/src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "apps/merchstore/src/styles.scss"
             ],
             "scripts": []
           }
@@ -101,19 +101,24 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "apps/merchstore/tsconfig.app.json",
+              "apps/merchstore/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
             ]
           }
-        },
+        }
+      }
+    },
+    "merchstore-e2e": {
+      "projectType": "application",
+      "root": "apps/merchstore-e2e",
+      "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
+            "protractorConfig": "apps/merchstore-e2e/protractor.conf.js",
             "devServerTarget": "merchstore:serve"
           },
           "configurations": {
@@ -121,8 +126,21 @@
               "devServerTarget": "merchstore:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/merchstore-e2e/tsconfig.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
         }
       }
-    }},
-  "defaultProject": "merchstore"
+    }
+  },
+  "defaultProject": "merchstore",
+  "cli": {
+    "analytics": "a0b3f4e4-18e2-4b51-b49a-d704daa64855"
+  }
 }
