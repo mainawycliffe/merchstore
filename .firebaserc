@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "merchstore-dev": {
+      "hosting": {
+        "merchstore": [
+          "merchstore-dev"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "merchstore-dev"
+  }
+}
