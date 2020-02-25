@@ -18,12 +18,12 @@ body {
 
 .header {
   grid-area: header;
-  background-color: #000000;
+  border: solid thin #000000;
 }
 
 .footer {
   grid-area: footer;
-  background-color: #000000;
+  border: solid thin #000000;
 }
 
 .app-body {
@@ -32,7 +32,7 @@ body {
   grid-area: body;
   display: grid;
   grid-template-areas: 'bodyBody bodySidebar';
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 400px;
   grid-template-rows: 1fr;
   grid-gap: 5px 5px;
   height: 100%;
@@ -40,12 +40,12 @@ body {
 
 .body-body {
   grid-area: bodyBody;
-  background-color: #000000;
+  border: solid thin #000000;
 }
 
 .body-sidebar {
   grid-area: bodySidebar;
-  background-color: #000000;
+  border: solid thin #000000;
 }
 
 @media only screen and (max-width: 1140px) {
